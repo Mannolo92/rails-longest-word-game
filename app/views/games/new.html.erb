@@ -1,0 +1,16 @@
+<h1 class="">New game</h1>
+
+<div class="container m-1 p-4">
+  <%@letters.each do |letter|%>
+    <div class="d-inline-flex p-4 m-2 bg-primary fw-bolder text-white shadow lg fs-4">
+      <%=letter.upcase%>
+    </div>
+  <%end%>
+</div>
+
+<form action="/score" method="post" data-turbo="false">
+  <!-- ... -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="answer">
+  <input type="submit" value="Ask!">
+</form>
